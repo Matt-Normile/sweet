@@ -175,6 +175,18 @@ public:
 			for (int i = 0; i < N; i++)
 				std::cout << "beta_re[" << i << "] = " << beta[i] << std::endl;
 		}
+                if (1) {
+                  FILE *fd = fopen("rexi_beta_re.csv", "w");
+                  for (int i=0; i<beta.size(); i++) {
+                    fprintf(fd, "%.18e\t%.18e\n", beta[i].real(), beta[i].imag());
+                  }
+                  fclose(fd);
+                  fd = fopen("rexi_alpha.csv", "w");
+                  for (int i=0; i<alpha.size(); i++) {
+                    fprintf(fd, "%.18e\t%.18e\n", alpha[i].real(), alpha[i].imag());
+                  }
+                  fclose(fd);
+                }
 	}
 
 
